@@ -24,7 +24,7 @@ public class DocumentRepository
                 .GetFiles(_documentsFolder)
                 .Select(file => Path.GetFileName(file))
                 .ToDictionary(name => name, name => false);
-            SaveJsonFile(_pendingDocuments, _pendingDocsFile);
+            SaveJsonFile(pendingDocs, _pendingDocsFile);
 
         }
         else
@@ -44,7 +44,7 @@ public class DocumentRepository
             {
                 pendingDocs[doc] = false;
             }
-            SaveJsonFile(_pendingDocuments, _pendingDocsFile);
+            SaveJsonFile(pendingDocs, _pendingDocsFile);
         }
         return pendingDocs;
     }
